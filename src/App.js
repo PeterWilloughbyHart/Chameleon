@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import Header from './components/Header';
 import chameleon_icon from './images/chameleon.jpg';
-import Routes from './routes';
-
 //npm i node-sass
 import styles from './component-styles/App.scss';
 //npm i react-router-dom
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 //Reminder: add react-router-dom + a page to use Axios to call in images using Google's API.
-
 class App extends Component { 
     constructor(props) {
         super(props)
