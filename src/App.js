@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
-import chameleon_icon from './images/chameleon.jpg';
 import Header from './components/Header';
+import chameleon_icon from './images/chameleon.jpg';
+import Routes from './routes';
+
+//npm i node-sass
 import styles from './component-styles/App.scss';
+//npm i react-router-dom
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 //Reminder: add react-router-dom + a page to use Axios to call in images using Google's API.
 
@@ -40,7 +45,6 @@ drawToCanvas = async (e) => {
     document.getElementById('click_instructions').innerText = "Now, click somewhere on the image for color values please"
 }
 
-
 getColor = (e) => {
     document.getElementById('click_instructions').innerText = "Thank you!";
     // Updating state w/ user's 'click' coordinates
@@ -74,29 +78,31 @@ getColor = (e) => {
 
 render() {
    return(
+       <Router>
        <div>
         <Header />
         <div id="app_wrap">
-
             <h1 id="click_instructions">Google a color and paste it's image address below</h1>
-            <div id="canvas_wrap"><canvas id="canvas" onClick={e => this.getColor(e)}></canvas></div>
+            <div id="canvas_wrap">
+                <canvas id="canvas" onClick={e => this.getColor(e)}/>
+            </div>
             <input onChange={e => this.drawToCanvas(e)} placeholder="paste image address here:"></input>
             <div id="data_wrap">
-            <input id="rgb" placeholder="rbg value:"></input>
-            <input id="hex" placeholder="hex value:"></input>
+                <input id="rgb" placeholder="rbg value:"/>
+                <input id="hex" placeholder="hex value:"/>
             </div>
 
             <h4>Or, feel free to right click on one of our supplied colors:</h4>
             <div id="color_wrap">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAACgCAMAAADw11iiAAAAA1BMVEX/tsFHHvIvAAAAKUlEQVR4nO3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAIAbS6AAATWHI3cAAAAASUVORK5CYII=" alt="color"/>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAACgCAMAAADw11iiAAAAA1BMVEWQ7pBqm8gMAAAAKUlEQVR4nO3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAIAbS6AAATWHI3cAAAAASUVORK5CYII=" alt="color"/>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAADICAMAAAA9W+hXAAAAA1BMVEX9/ZaiGHTYAAAANElEQVR4nO3BMQEAAADCoPVP7WsIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAN1+AABVhDU2QAAAABJRU5ErkJggg==" alt="color"/>
-            </div>
-            
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAACgCAMAAADw11iiAAAAA1BMVEX/tsFHHvIvAAAAKUlEQVR4nO3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAIAbS6AAATWHI3cAAAAASUVORK5CYII=" alt="color"/>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAACgCAMAAADw11iiAAAAA1BMVEWQ7pBqm8gMAAAAKUlEQVR4nO3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAIAbS6AAATWHI3cAAAAASUVORK5CYII=" alt="color"/>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAADICAMAAAA9W+hXAAAAA1BMVEX9/ZaiGHTYAAAANElEQVR4nO3BMQEAAADCoPVP7WsIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAN1+AABVhDU2QAAAABJRU5ErkJggg==" alt="color"/>
+            </div>  
         </div>
        </div>
+       </Router>
       )
-   } 
+    } 
 }
 
 export default App;
