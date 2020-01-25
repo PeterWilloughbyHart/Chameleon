@@ -1,0 +1,66 @@
+@mixin flex_center($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction
+}
+
+$chameleon_white: rgb(233, 248, 238);
+
+body {
+    margin: 0;
+}
+
+#app_wrap { 
+    @include flex_center(column);
+     background-color: $chameleon_white;
+     height: 90vh;
+
+
+     h1 {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        background-color: white;
+        color: black;
+     }
+
+     img {
+         width: 10vh;
+         height: 10vh;
+     }
+    
+    #canvas_wrap {
+        @include flex_center(column);
+        height: 30vh;
+        width: 60vh;
+        box-shadow: 7px 7px 20px black;
+
+        canvas {
+            width: 90%;
+            height: 90%;
+        }
+
+    }
+    
+    input {
+        margin-top: 20px;
+    }
+
+    #data_wrap {
+        @include flex_center(row);
+        width: 60vh;
+        
+        input {
+            margin: 10px;
+            font-weight: bold;
+        }
+    }
+
+    #color_wrap {
+        @include flex_center(row);
+        width: 60vh;
+
+        img {
+            margin: 5px;
+        }
+    }
+}

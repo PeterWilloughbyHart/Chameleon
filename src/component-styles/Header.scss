@@ -1,0 +1,14 @@
+#web-Header {
+    border: 2px solid black;
+}
+
+ul {
+    display: inline-block;
+    list-style-type: none;
+
+    li {
+        text-decoration: none;
+        float: left;
+        padding-left: 30px;
+    }
+}
